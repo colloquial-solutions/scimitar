@@ -126,6 +126,7 @@ module Scimitar
         #
         response.set_header('WWW_AUTHENTICATE', 'Basic' ) if Scimitar.engine_configuration.basic_authenticator.present?
         response.set_header('WWW_AUTHENTICATE', 'Bearer') if Scimitar.engine_configuration.token_authenticator.present?
+        response.set_header('Content-Type', 'application/scim+json; charset=utf-8')
       end
 
       def authenticate
